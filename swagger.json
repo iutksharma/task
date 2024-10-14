@@ -1,0 +1,178 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+      "title": "My Express API",
+      "description": "A sample API built with Express",
+      "version": "1.0.0"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:3000",
+        "description": "Local development server"
+      }
+    ],
+    "security": [],
+    "paths": {
+      "/users/register": {
+        "post": {
+          "summary": "register a user",
+          "description": "register a user",
+          "tags": ["AUTH"],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "multipart/form-data": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name":{
+                      "type": "string",
+                      "default": "Brain Inventory"
+                    },
+                    "email":{
+                      "type": "string",
+                      "default": "inventory@example.com"
+                    },
+                    "password": {
+                      "type": "string",
+                      "default": "12345678"
+                    },
+                    "profilePicture": {
+                        "type": "string",
+                        "format": "binary"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Signin successful"
+            },
+            "400": {
+              "description": "Bad request (missing email or password)"
+            },
+            "401": {
+              "description": "Unauthorized (user not found or invalid password)"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        }
+      },
+      "/users/verifyEmail": {
+        "post": {
+          "summary": "verify email",
+          "description": "verify email",
+          "tags": ["AUTH"],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "string",
+                      "default": "inventory@example.com"
+                    },
+                    "token": {
+                      "type": "string",
+                      "default":"qwerty"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Signin successful"
+            },
+            "400": {
+              "description": "Bad request (missing email or password)"
+            },
+            "401": {
+              "description": "Unauthorized (user not found or invalid password)"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        }
+      },
+      "/users/login": {
+        "post": {
+          "summary": "login user",
+          "description": "login user",
+          "tags": ["ADDITIONAL"],
+          "requestBody": {
+            "required": true,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "string",
+                      "default": "inventory@example.com"
+                    },
+                    "password": {
+                      "type": "string",
+                      "default":"12345678"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Signin successful"
+            },
+            "400": {
+              "description": "Bad request (missing email or password)"
+            },
+            "401": {
+              "description": "Unauthorized (user not found or invalid password)"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        }
+      },
+      "/users/getUserProfile": {
+        "get": {
+            "summary": "Get user profile",
+            "description": "This endpoint allows retrieving user profile.",
+            "tags": ["ADDITIONAL"],
+            "security": [
+                {
+                    "BearerAuth": []
+                }
+            ],
+            "responses": {
+              "200": {
+                "description": "user profile retrieved"
+              },
+              "500": {
+                "description": "Internal Server Error"
+              }
+            }
+          }
+      }
+    },
+    "components": {
+        "securitySchemes": {
+        "BearerAuth": {
+            "type": "http",
+            "scheme": "bearer",
+            "bearerFormat": "JWT"
+        }
+        }
+    }
+}
+  
