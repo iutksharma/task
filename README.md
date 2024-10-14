@@ -9,13 +9,19 @@ user profile
 
 Tech stack -
 Backend - Node.js and Express
+
 Template engine - HBS
+
 Email service - Nodemailer with SMTP
+
 File upload - Multer 
 
 Installation -
+
 1. Clone the repository
+
 2. npm install
+
 3. node index || npx nodemon
 
 Access the API on browser - 
