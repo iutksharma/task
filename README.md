@@ -3,13 +3,13 @@ This project provides APIs for registering user and verifying the email after ve
 
 Features -
 
-user registration
+1. user registration
 
-email verification
+2. email verification
 
-user login
+3. user login
 
-user profile
+4. user profile
 
 Tech stack -
 
