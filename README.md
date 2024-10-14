@@ -2,19 +2,24 @@ About the task -
 This project provides APIs for registering user and verifying the email after verfification user can login and get their profile
 
 Features -
+
 user registration
+
 email verification
+
 user login
+
 user profile
 
 Tech stack -
-Backend - Node.js and Express
 
-Template engine - HBS
+1. Backend - Node.js and Express
 
-Email service - Nodemailer with SMTP
+2. Template engine - HBS
 
-File upload - Multer 
+3. Email service - Nodemailer with SMTP
+
+4. File upload - Multer 
 
 Installation -
 
